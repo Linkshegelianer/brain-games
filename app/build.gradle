@@ -17,3 +17,10 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+application {
+    mainClassName = "hexlet.code.App"
+    startScripts {
+        mainClassName = "hexlet.code.App"
+    }
+}
