@@ -7,6 +7,7 @@ public class App {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Please enter the game number and press Enter.");
 		System.out.println("1 - Greet");
+		System.out.println("2 - Even");
 		System.out.println("0 - Exit");
 		String number = scanner.next();
 		System.out.println("Your choice: " + number);
@@ -16,7 +17,10 @@ public class App {
 				Cli.greetUser();
 				break;
 			case "2":
-				System.out.println("The feature is not done yet!");
+				Even.even();
+				break;
+			case "0":
+				System.out.println("Bye!");
 				break;
 			default:
 				System.out.println("Incorrect number!");
