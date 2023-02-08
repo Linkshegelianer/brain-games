@@ -29,7 +29,7 @@ public class App {
 				GCD.findGcd();
 				break;
 			case "5":
-				Prog.progression();
+				Prog.findProg();
 				break;
 			case "0":
 				System.out.println("Bye!");
