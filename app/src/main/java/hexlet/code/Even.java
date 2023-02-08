@@ -18,8 +18,8 @@ public class Even {
 			for (var i = 0; i < attempts; i++) {
 				int number = getRandomInt();
 				System.out.println("Question: " + number);
-				String answer = scanner.next();
 
+				String answer = scanner.next();
 				if (number % 2 == 0 && answer.equals("yes")) {
 					System.out.println("Correct!");
 				} else if (number % 2 != 0 && answer.equals("no")) {

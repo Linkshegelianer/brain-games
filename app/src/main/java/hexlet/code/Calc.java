@@ -9,30 +9,53 @@ public class Calc {
 		return random.nextInt(100) + 1;
 	}
 	public static void calculator() {
-		// System.out.println("What is the result of the expression?");
-		System.out.println("Working on this feature!");
-		/*
+		System.out.println("What is the result of the expression?");
+
 		Scanner scanner = new Scanner(System.in);
+		Random random = new Random();
+		String[] operators = {"+", "-", "*"};
 
 		int attempts = 3;
+		boolean repeat = true;
 		while (repeat) {
 			for (var i = 0; i < attempts; i++) {
-				int number1 = getRandomInt();
-				int number2 = getRandomInt();
+				int num1 = getRandomInt();
+				int num2 = getRandomInt();
+				int operator = random.nextInt(3);
+				int result = 0;
 
-				System.out.println("Question: " + expression);
-			}
-		}
-		for (var i = 0; i < attempts; i++) {
-			int number = getRandomInt();
-			System.out.println("Question: " + number);
-			String answer = scanner.next();
+				String operatorSymbol = operators[operator];
+				System.out.println(num1 + " " + operatorSymbol + " " + num2 + " = ?");
 
-			if (answer.equals("yes") && number % 2 == 0) {
-				System.out.println("Correct!");
-			} else {
-				System.out.println("Incorrect!");
+				switch (operatorSymbol) {
+					case "+":
+						result = num1 + num2;
+						break;
+					case "-":
+						result = num1 - num2;
+						break;
+					case "*":
+						result = num1 * num2;
+						break;
+				}
+
+				Scanner scanner1 = new Scanner(System.in);
+				int answerInt = scanner1.nextInt();
+				if (answerInt == result) {
+					System.out.println("Correct!");
+				} else {
+					System.out.println("Incorrect!");
+					break;
+				}
 			}
-			*/
+				System.out.print("Do you want to continue playing? (yes/no): ");
+				Scanner scanner2 = new Scanner(System.in);
+				String answerString = scanner2.nextLine();
+				if (!answerString.equalsIgnoreCase("yes")) {
+					repeat = false;
+				}
 		}
+
+		System.out.println("Thanks for playing!");
 	}
+}
