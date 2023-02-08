@@ -11,6 +11,7 @@ public class App {
 		System.out.println("3 - Calculator");
 		System.out.println("4 - GCD");
 		System.out.println("5 - Progression");
+		System.out.println("6 - Prime");
 		System.out.println("0 - Exit");
 		String number = scanner.next();
 		System.out.println("Your choice: " + number);
@@ -30,6 +31,9 @@ public class App {
 				break;
 			case "5":
 				Prog.findProg();
+				break;
+			case "6":
+				Prime.isPrime();
 				break;
 			case "0":
 				System.out.println("Bye!");
