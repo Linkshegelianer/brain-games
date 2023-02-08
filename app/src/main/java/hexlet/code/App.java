@@ -10,6 +10,7 @@ public class App {
 		System.out.println("2 - Even");
 		System.out.println("3 - Calculator");
 		System.out.println("4 - GCD");
+		System.out.println("5 - Progression");
 		System.out.println("0 - Exit");
 		String number = scanner.next();
 		System.out.println("Your choice: " + number);
@@ -26,6 +27,9 @@ public class App {
 				break;
 			case "4":
 				GCD.findGcd();
+				break;
+			case "5":
+				Prog.progression();
 				break;
 			case "0":
 				System.out.println("Bye!");
