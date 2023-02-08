@@ -5,4 +5,5 @@
 * **See how it works here:**
   * [Even function](https://asciinema.org/a/rP18cocdRgdVNCiwuv6w4V44K)
   * [Calculator function](https://asciinema.org/a/EGHLYGUgArQtzKS2p1wBHDDh7)
+  * [GCD function](https://asciinema.org/a/MKgz9IhMqMlVKzaEMwseLdQuF)
 
