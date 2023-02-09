@@ -6,8 +6,7 @@
 
 * **See how it works here:**
   * [Even function](https://asciinema.org/a/hzGX8ZCjG6W3kEjXAiRb5307f)
-  * [Calculator function]()
-  * [GCD function]()
-  * [Progression function]()
-  * [Prime function]()
-  * [Prime function]()
+  * [Calculator function](https://asciinema.org/a/DlmPkzLBkGYmNQPlwQ0GSFInG)
+  * [GCD function](https://asciinema.org/a/V4ATlJqjMC0hM9K9SRjRhR1UB)
+  * [Progression function](https://asciinema.org/a/2fUuyfvDQp65onPhu5wffrPaW)
+  * [Prime function](https://asciinema.org/a/KsWnqb9Z1K7cboONrlHluwGBh)
