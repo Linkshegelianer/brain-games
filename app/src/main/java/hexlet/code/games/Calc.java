@@ -4,10 +4,6 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Calc {
-	public static int getRandomInt() {
-		Random random = new Random();
-		return random.nextInt(100) + 1;
-	}
 	public static void calculator() {
 		System.out.println("May I have your name? ");
 		Scanner scannerName = new Scanner(System.in);
@@ -20,12 +16,10 @@ public class Calc {
 		String[] operators = {"+", "-", "*"};
 
 		int attempts = 3;
-		boolean repeat = true;
 		int correctAnswers = 0;
-		while (repeat) {
 			for (var i = 0; i < attempts; i++) {
-				int num1 = getRandomInt();
-				int num2 = getRandomInt();
+				int num1 = Engine.getRandomInt();
+				int num2 = Engine.getRandomInt();
 				int operator = random.nextInt(3);
 				int result = 0;
 
@@ -62,14 +56,7 @@ public class Calc {
 					break;
 				}
 			}
-			System.out.print("Do you want to continue playing? (yes/no): ");
-			Scanner answerFinal = new Scanner(System.in);
-			String answer = answerFinal.nextLine();
-			if (!answer.equalsIgnoreCase("yes")) {
-				repeat = false;
-			}
-		}
 
-		System.out.println("Thanks for playing!");
+		Engine.farewellAfterPlay();
 	}
 }

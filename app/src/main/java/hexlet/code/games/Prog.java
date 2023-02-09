@@ -4,18 +4,6 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Prog {
-    public static int[] generateSequence() {
-        int[] sequence = new int[10];
-        Random random = new Random();
-        int difference = random.nextInt(10) + 1;
-        int firstNumber = random.nextInt(10);
-        sequence[0] = firstNumber;
-        for (int i = 1; i < 10; i++) {
-            int nextNumber = firstNumber + (i * difference);
-            sequence[i] = nextNumber;
-        }
-        return sequence;
-    }
 
     public static void findProg() {
         System.out.println("May I have your name? ");
@@ -26,11 +14,9 @@ public class Prog {
         System.out.println("What number is missing in the progression?");
 
         int attempts = 3;
-        boolean repeat = true;
         int correctAnswers = 0;
-        while (repeat) {
             for (var i = 0; i < attempts; i++) {
-                int[] sequence = generateSequence();
+                int[] sequence = Engine.generateSequence();
                 int missingIndex = (int)(Math.random() * 10);
                 int missingValue = sequence[missingIndex];
                 sequence[missingIndex] = 0;
@@ -65,14 +51,6 @@ public class Prog {
                 }
             }
 
-            System.out.print("Do you want to continue playing? (yes/no): ");
-            Scanner answerFinal = new Scanner(System.in);
-            String answer = answerFinal.nextLine();
-            if (!answer.equalsIgnoreCase("yes")) {
-                repeat = false;
-            }
-        }
-
-        System.out.println("Thanks for playing!");
+        Engine.farewellAfterPlay();
     }
 }

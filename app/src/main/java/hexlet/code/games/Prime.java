@@ -1,15 +1,9 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import java.util.Random;
 import java.lang.Math;
 
 public class Prime {
-    public static int getRandomInt() {
-        Random random = new Random();
-        return random.nextInt(100) + 1;
-    }
-
     public static boolean isPrime(int number) {
         if (number < 2) {
             return false;
@@ -29,13 +23,10 @@ public class Prime {
 
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-
         int attempts = 3;
-        boolean repeat = true;
         int correctAnswers = 0;
-        while (repeat) {
             for (var i = 0; i < attempts; i++) {
-                int number = getRandomInt();
+                int number = Engine.getRandomInt();
                 System.out.println("Question: " + number);
                 System.out.print("Your answer: ");
 
@@ -59,14 +50,7 @@ public class Prime {
                     break;
                 }
             }
-            System.out.print("Do you want to continue playing? (yes/no): ");
-            Scanner answerFinal = new Scanner(System.in);
-            String answer = answerFinal.nextLine();
-            if (!answer.equalsIgnoreCase("yes")) {
-                repeat = false;
-            }
-        }
 
-        System.out.println("Thanks for playing!");
+        Engine.farewellAfterPlay();
     }
 }
