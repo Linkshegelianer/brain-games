@@ -4,17 +4,6 @@ import java.util.Scanner;
 import java.lang.Math;
 
 public class Prime {
-    public static boolean isPrime(int number) {
-        if (number < 2) {
-            return false;
-        }
-        for (int i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
     public static void isPrime() {
         System.out.println("May I have your name? ");
         Scanner scannerName = new Scanner(System.in);
@@ -33,10 +22,10 @@ public class Prime {
                 Scanner scanner = new Scanner(System.in);
                 String answer = scanner.next();
 
-                if (isPrime(number) == true && answer.equals("yes")) {
+                if (Engine.isPrime(number) == true && answer.equals("yes")) {
                     System.out.println("Correct!");
                     correctAnswers++;
-                } else if (isPrime(number) == false && answer.equals("no")) {
+                } else if (Engine.isPrime(number) == false && answer.equals("no")) {
                     System.out.println("Correct!");
                     correctAnswers++;
                 } else {
