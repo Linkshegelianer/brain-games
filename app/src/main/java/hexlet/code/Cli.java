@@ -8,7 +8,7 @@ public class Cli {
         System.out.println("May I have your name? ");
 
         Scanner scanner = new Scanner(System.in);
-        String userName = scanner.next(); // public static for usage in other classes
+        String userName = scanner.next();
 
         System.out.println("Hello, " + userName + "!");
     }

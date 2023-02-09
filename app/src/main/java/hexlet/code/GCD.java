@@ -9,15 +9,22 @@ public class GCD {
         return random.nextInt(100) + 1;
     }
     public static void findGcd() {
+        System.out.println("May I have your name? ");
+        Scanner scannerName = new Scanner(System.in);
+        String userName = scannerName.next();
+        System.out.println("Hello, " + userName + "!");
+
         System.out.println("Find the greatest common divisor of given numbers.");
 
         int attempts = 3;
         boolean repeat = true;
+        int correctAnswers = 0;
         while (repeat) {
             for (var i = 0; i < attempts; i++) {
                 int num1 = getRandomInt();
                 int num2 = getRandomInt();
                 System.out.println("Question: " + num1 + " " + num2);
+                System.out.print("Your answer: ");
 
                 while (num2 != 0) {
                     int temp = num2;
@@ -30,15 +37,22 @@ public class GCD {
                 int answer = scanner.nextInt();
                 if (answer == result) {
                     System.out.println("Correct!");
+                    correctAnswers++;
                 } else {
                     System.out.println("Incorrect!");
                     System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'" + result + "'.");
+                    correctAnswers = 0;
+                    break;
+                }
+
+                if (correctAnswers == 3) {
+                    System.out.println("Congratulations, " + userName + "!");
                     break;
                 }
             }
             System.out.print("Do you want to continue playing? (yes/no): ");
-            Scanner sc = new Scanner(System.in);
-            String answer = sc.nextLine();
+            Scanner answerFinal = new Scanner(System.in);
+            String answer = answerFinal.nextLine();
             if (!answer.equalsIgnoreCase("yes")) {
                 repeat = false;
             }
@@ -46,5 +60,4 @@ public class GCD {
 
         System.out.println("Thanks for playing!");
     }
-
 }

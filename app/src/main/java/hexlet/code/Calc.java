@@ -9,14 +9,19 @@ public class Calc {
 		return random.nextInt(100) + 1;
 	}
 	public static void calculator() {
+		System.out.println("May I have your name? ");
+		Scanner scannerName = new Scanner(System.in);
+		String userName = scannerName.next();
+		System.out.println("Hello, " + userName + "!");
+
 		System.out.println("What is the result of the expression?");
 
-		Scanner scanner = new Scanner(System.in);
 		Random random = new Random();
 		String[] operators = {"+", "-", "*"};
 
 		int attempts = 3;
 		boolean repeat = true;
+		int correctAnswers = 0;
 		while (repeat) {
 			for (var i = 0; i < attempts; i++) {
 				int num1 = getRandomInt();
@@ -25,7 +30,8 @@ public class Calc {
 				int result = 0;
 
 				String operatorSymbol = operators[operator];
-				System.out.println(num1 + " " + operatorSymbol + " " + num2 + " = ?");
+				System.out.println("Question: " + num1 + " " + operatorSymbol + " " + num2 + " = ?");
+				System.out.print("Your answer: ");
 
 				switch (operatorSymbol) {
 					case "+":
@@ -39,22 +45,29 @@ public class Calc {
 						break;
 				}
 
-				Scanner scanner1 = new Scanner(System.in);
-				int answerInt = scanner1.nextInt();
+				Scanner scannerAnswer = new Scanner(System.in);
+				int answerInt = scannerAnswer.nextInt();
 				if (answerInt == result) {
 					System.out.println("Correct!");
+					correctAnswers++;
 				} else {
 					System.out.println("Incorrect!");
 					System.out.println("'" + answerInt + "'" + " is wrong answer ;(. Correct answer was " + "'" + result + "'.");
+					correctAnswers = 0;
+					break;
+				}
+
+				if (correctAnswers == 3) {
+					System.out.println("Congratulations, " + userName + "!");
 					break;
 				}
 			}
-				System.out.print("Do you want to continue playing? (yes/no): ");
-				Scanner scanner2 = new Scanner(System.in);
-				String answerString = scanner2.nextLine();
-				if (!answerString.equalsIgnoreCase("yes")) {
-					repeat = false;
-				}
+			System.out.print("Do you want to continue playing? (yes/no): ");
+			Scanner answerFinal = new Scanner(System.in);
+			String answer = answerFinal.nextLine();
+			if (!answer.equalsIgnoreCase("yes")) {
+				repeat = false;
+			}
 		}
 
 		System.out.println("Thanks for playing!");
