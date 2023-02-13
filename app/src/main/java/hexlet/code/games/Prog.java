@@ -41,6 +41,7 @@ public class Prog {
             } else {
                 System.out.println("Incorrect!");
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'" + missingValue + "'.");
+                System.out.println("Let's try again, " + userName + "!");
                 correctAnswers = 0;
                 break;
             }
