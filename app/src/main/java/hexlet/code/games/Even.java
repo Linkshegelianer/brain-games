@@ -27,8 +27,14 @@ public class Even {
 				} else if (number % 2 != 0 && answer.equals("no")) {
 					System.out.println("Correct!");
 					correctAnswers++;
-				} else {
-					System.out.println("Incorrect!");
+				} else if (number % 2 != 0 && answer.equals("yes")) {
+					System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'no'.");
+					System.out.println("Let's try again, " + userName + "!");
+					correctAnswers = 0;
+					break;
+				} else if (number % 2 == 0 && answer.equals("no")) {
+					System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'yes'.");
+					System.out.println("Let's try again, " + userName + "!");
 					correctAnswers = 0;
 					break;
 				}

@@ -17,45 +17,45 @@ public class Calc {
 
 		int attempts = 3;
 		int correctAnswers = 0;
-			for (var i = 0; i < attempts; i++) {
-				int num1 = Engine.getRandomInt();
-				int num2 = Engine.getRandomInt();
-				int operator = random.nextInt(3);
-				int result = 0;
+		for (var i = 0; i < attempts; i++) {
+			int num1 = Engine.getRandomInt();
+			int num2 = Engine.getRandomInt();
+			int operator = random.nextInt(3);
+			int result = 0;
 
-				String operatorSymbol = operators[operator];
-				System.out.println("Question: " + num1 + " " + operatorSymbol + " " + num2 + " = ?");
-				System.out.print("Your answer: ");
+			String operatorSymbol = operators[operator];
+			System.out.println("Question: " + num1 + " " + operatorSymbol + " " + num2 + " = ?");
+			System.out.print("Your answer: ");
 
-				switch (operatorSymbol) {
-					case "+":
-						result = num1 + num2;
-						break;
-					case "-":
-						result = num1 - num2;
-						break;
-					case "*":
-						result = num1 * num2;
-						break;
-				}
-
-				Scanner scannerAnswer = new Scanner(System.in);
-				int answerInt = scannerAnswer.nextInt();
-				if (answerInt == result) {
-					System.out.println("Correct!");
-					correctAnswers++;
-				} else {
-					System.out.println("Incorrect!");
-					System.out.println("'" + answerInt + "'" + " is wrong answer ;(. Correct answer was " + "'" + result + "'.");
-					correctAnswers = 0;
+			switch (operatorSymbol) {
+				case "+":
+					result = num1 + num2;
 					break;
-				}
-
-				if (correctAnswers == 3) {
-					System.out.println("Congratulations, " + userName + "!");
+				case "-":
+					result = num1 - num2;
 					break;
-				}
+				case "*":
+					result = num1 * num2;
+					break;
 			}
+
+			Scanner scannerAnswer = new Scanner(System.in);
+			int answerInt = scannerAnswer.nextInt();
+			if (answerInt == result) {
+				System.out.println("Correct!");
+				correctAnswers++;
+			} else {
+				System.out.println("Incorrect!");
+				System.out.println("'" + answerInt + "'" + " is wrong answer ;(. Correct answer was " + "'" + result + "'.");
+				correctAnswers = 0;
+				break;
+			}
+
+			if (correctAnswers == 3) {
+				System.out.println("Congratulations, " + userName + "!");
+				break;
+			}
+		}
 
 		Engine.farewellAfterPlay();
 	}

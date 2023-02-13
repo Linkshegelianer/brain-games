@@ -15,41 +15,41 @@ public class Prog {
 
         int attempts = 3;
         int correctAnswers = 0;
-            for (var i = 0; i < attempts; i++) {
-                int[] sequence = Engine.generateSequence();
-                int missingIndex = (int)(Math.random() * 10);
-                int missingValue = sequence[missingIndex];
-                sequence[missingIndex] = 0;
+        for (var i = 0; i < attempts; i++) {
+            int[] sequence = Engine.generateSequence();
+            int missingIndex = (int)(Math.random() * 10);
+            int missingValue = sequence[missingIndex];
+            sequence[missingIndex] = 0;
 
-                System.out.print("Question: ");
+            System.out.print("Question: ");
 
-                for (int j = 0; j < 10; j++) {
-                    if (sequence[j] == 0) {
-                        System.out.print(".. ");
-                    } else {
-                        System.out.print(sequence[j] + " ");
-                    }
-                }
-                System.out.println();
-
-                Scanner input = new Scanner(System.in);
-                System.out.print("Your answer: ");
-                int answer = input.nextInt();
-                if (answer == missingValue) {
-                    System.out.println("Correct!");
-                    correctAnswers++;
+            for (int j = 0; j < 10; j++) {
+                if (sequence[j] == 0) {
+                    System.out.print(".. ");
                 } else {
-                    System.out.println("Incorrect!");
-                    System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'" + missingValue + "'.");
-                    correctAnswers = 0;
-                    break;
-                }
-
-                if (correctAnswers == 3) {
-                    System.out.println("Congratulations, " + userName + "!");
-                    break;
+                    System.out.print(sequence[j] + " ");
                 }
             }
+            System.out.println();
+
+            Scanner input = new Scanner(System.in);
+            System.out.print("Your answer: ");
+            int answer = input.nextInt();
+            if (answer == missingValue) {
+                System.out.println("Correct!");
+                correctAnswers++;
+            } else {
+                System.out.println("Incorrect!");
+                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'" + missingValue + "'.");
+                correctAnswers = 0;
+                break;
+            }
+
+            if (correctAnswers == 3) {
+                System.out.println("Congratulations, " + userName + "!");
+                break;
+            }
+        }
 
         Engine.farewellAfterPlay();
     }
