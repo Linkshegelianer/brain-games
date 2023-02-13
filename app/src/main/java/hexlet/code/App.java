@@ -36,7 +36,6 @@ public class App {
 				Prime.isPrime();
 				break;
 			case "0":
-				System.out.println("Bye!");
 				break;
 			default:
 				System.out.println("Incorrect number!");
