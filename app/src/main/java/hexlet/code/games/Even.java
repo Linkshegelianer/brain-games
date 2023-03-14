@@ -1,50 +1,27 @@
-package hexlet.code;
+package hexlet.code.games;
 
-import java.util.Scanner;
+import hexlet.code.Engine;
 
 public class Even {
-	public static void even() {
-		System.out.println("May I have your name? ");
-		Scanner scannerName = new Scanner(System.in);
-		String userName = scannerName.next();
-		System.out.println("Hello, " + userName + "!");
+    private static final int QUESTIONS_COUNT = 3;
+    private static final int MAX_RANDOM_NUMBER = 100;
+    private static final String TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
+    /*  questionsAnswers[][0] - questions;
+        questionsAnswers[][1] - correct answers */
+    private static final int QUESTION_ROW_NUMBER = 0;
+    private static final int ANSWER_ROW_NUMBER = 1;
+    public static void start() {
+        for (int i = 0; i < QUESTIONS_COUNT; i++) {
+            int questionNumber = (int) (Math.random() * MAX_RANDOM_NUMBER);
+            questionsAnswers[i][QUESTION_ROW_NUMBER] = String.valueOf(questionNumber);
+            questionsAnswers[i][ANSWER_ROW_NUMBER] = (isEven(questionNumber)) ? "yes" : "no";
+        }
+        Engine.startGame(TASK, questionsAnswers);
+    }
 
-		System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    private static boolean isEven(int currentNumber) {
+        return currentNumber % 2 == 0;
+    }
 
-		int attempts = 3;
-		int correctAnswers = 0;
-			for (var i = 0; i < attempts; i++) {
-				int number = Engine.getRandomInt();
-				System.out.println("Question: " + number);
-				System.out.print("Your answer: ");
-
-				Scanner scannerAnswer = new Scanner(System.in);
-				String answer = scannerAnswer.next();
-
-				if (number % 2 == 0 && answer.equals("yes")) {
-					System.out.println("Correct!");
-					correctAnswers++;
-				} else if (number % 2 != 0 && answer.equals("no")) {
-					System.out.println("Correct!");
-					correctAnswers++;
-				} else if (number % 2 != 0 && answer.equals("yes")) {
-					System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'no'.");
-					System.out.println("Let's try again, " + userName + "!");
-					correctAnswers = 0;
-					break;
-				} else if (number % 2 == 0 && answer.equals("no")) {
-					System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'yes'.");
-					System.out.println("Let's try again, " + userName + "!");
-					correctAnswers = 0;
-					break;
-				}
-
-				if (correctAnswers == 3) {
-					System.out.println("Congratulations, " + userName + "!");
-					break;
-				}
-			}
-
-		Engine.farewellAfterPlay();
-	}
 }

@@ -1,37 +1,33 @@
 package hexlet.code;
 
-import java.util.Random;
+import java.util.Scanner;
+
 public class Engine {
-    public static int getRandomInt() {
-        Random random = new Random();
-        return random.nextInt(100) + 1;
-    }
-    public static void farewellAfterPlay() {
-        System.out.println("Thanks for playing!");
-    }
+    private static final int QUESTION_ROW_NUMBER = 0;
+    private static final int ANSWER_ROW_NUMBER = 1;
+    public static void startGame(String task, String[][] questionsAnswers) {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name?");
+        Scanner console = new Scanner(System.in);
+        String username = console.nextLine();
+        System.out.println("Hello, " + username + "!");
+        System.out.println(task);
 
-    public static int[] generateSequence() { // for Prog()
-        int[] sequence = new int[10];
-        Random random = new Random();
-        int difference = random.nextInt(10) + 1;
-        int firstNumber = random.nextInt(10);
-        sequence[0] = firstNumber;
-        for (int i = 1; i < 10; i++) {
-            int nextNumber = firstNumber + (i * difference);
-            sequence[i] = nextNumber;
-        }
-        return sequence;
-    }
-
-    public static boolean isPrime(int number) { // for Prime()
-        if (number < 2) {
-            return false;
-        }
-        for (int i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i == 0) {
-                return false;
+        for (int i = 0; i < questionsAnswers.length; i++) {
+            String correctAnswer = questionsAnswers[i][ANSWER_ROW_NUMBER];
+            System.out.println("Question: " + questionsAnswers[i][QUESTION_ROW_NUMBER]);
+            System.out.print("Your answer: ");
+            var currentAnswer = console.nextLine();
+            boolean isAnswerCorrect = currentAnswer.equals(correctAnswer);
+            if (isAnswerCorrect) {
+                System.out.println("Correct!");
+            } else {
+                System.out.println("'" + currentAnswer + "' is wrong answer ;(. Correct answer was '"
+                        + correctAnswer + "'.");
+                System.out.println("Let's try again, " + username + "!");
+                return;
             }
         }
-        return true;
+        System.out.println("Congratulations, " + username + "!");
     }
 }

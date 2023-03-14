@@ -1,57 +1,45 @@
-package hexlet.code;
+package hexlet.code.games;
 
-import java.util.Scanner;
-import java.util.Random;
+import hexlet.code.Engine;
+
+import java.util.Arrays;
 
 public class Prog {
+    private static final int QUESTIONS_COUNT = 3;
+    private static final int MIN_NUMBERS_IN_A_ROW = 5;
+    private static final int MAX_NUMBERS_IN_A_ROW = 10;
+    private static final int MIN_INCREMENT = 5;
+    private static final int MAX_INCREMENT = 30;
+    private static final int MAX_RANDOM_NUMBER = 100;
+    private static final String TASK = "What number is missing in the progression?";
+    private static String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
+    private static final int QUESTION_ROW_NUMBER = 0;
+    private static final int ANSWER_ROW_NUMBER = 1;
 
-    public static void findProg() {
-        System.out.println("May I have your name? ");
-        Scanner scannerName = new Scanner(System.in);
-        String userName = scannerName.next();
-        System.out.println("Hello, " + userName + "!");
-
-        System.out.println("What number is missing in the progression?");
-
-        int attempts = 3;
-        int correctAnswers = 0;
-        for (var i = 0; i < attempts; i++) {
-            int[] sequence = Engine.generateSequence();
-            int missingIndex = (int)(Math.random() * 10);
-            int missingValue = sequence[missingIndex];
-            sequence[missingIndex] = 0;
-
-            System.out.print("Question: ");
-
-            for (int j = 0; j < 10; j++) {
-                if (sequence[j] == 0) {
-                    System.out.print(".. ");
+    public static void start() {
+        int numbersInARow = getRandomNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
+        String[] progression = new String[numbersInARow];
+        for (int i = 0; i < QUESTIONS_COUNT; i++) {
+            int hiddenNumberIndex = getRandomNumber(0, numbersInARow - 1);
+            int increment = getRandomNumber(MIN_INCREMENT, MAX_INCREMENT);
+            int currentNumber = getRandomNumber(0, MAX_RANDOM_NUMBER);
+            Arrays.fill(progression, "");
+            questionsAnswers[i][QUESTION_ROW_NUMBER] = "";
+            for (int j = 0; j < numbersInARow; j++) {
+                if (j != hiddenNumberIndex) {
+                    progression[j] = String.valueOf(currentNumber);
                 } else {
-                    System.out.print(sequence[j] + " ");
+                    progression[j] = "..";
+                    questionsAnswers[i][ANSWER_ROW_NUMBER] = String.valueOf(currentNumber);
                 }
+                currentNumber += increment;
             }
-            System.out.println();
-
-            Scanner input = new Scanner(System.in);
-            System.out.print("Your answer: ");
-            int answer = input.nextInt();
-            if (answer == missingValue) {
-                System.out.println("Correct!");
-                correctAnswers++;
-            } else {
-                System.out.println("Incorrect!");
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'" + missingValue + "'.");
-                System.out.println("Let's try again, " + userName + "!");
-                correctAnswers = 0;
-                break;
-            }
-
-            if (correctAnswers == 3) {
-                System.out.println("Congratulations, " + userName + "!");
-                break;
-            }
+            questionsAnswers[i][QUESTION_ROW_NUMBER] = String.join(" ", progression);
         }
+        Engine.startGame(TASK, questionsAnswers);
+    }
 
-        Engine.farewellAfterPlay();
+    private static int getRandomNumber(int min, int max) {
+        return (int) (Math.random() * (max - min)) + min;
     }
 }

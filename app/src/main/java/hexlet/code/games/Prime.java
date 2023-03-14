@@ -1,51 +1,32 @@
-package hexlet.code;
+package hexlet.code.games;
 
-import java.util.Scanner;
-import java.lang.Math;
+import hexlet.code.Engine;
 
 public class Prime {
-    public static void isPrime() {
-        System.out.println("May I have your name? ");
-        Scanner scannerName = new Scanner(System.in);
-        String userName = scannerName.next();
-        System.out.println("Hello, " + userName + "!");
+    private static final int QUESTIONS_COUNT = 3;
+    private static final int MAX_RANDOM_NUMBER = 100;
+    private static final String TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
+    private static final int QUESTION_ROW_NUMBER = 0;
+    private static final int ANSWER_ROW_NUMBER = 1;
+    public static void start() {
+        for (int i = 0; i < QUESTIONS_COUNT; i++) {
+            int questionNumber = (int) (Math.random() * MAX_RANDOM_NUMBER);
+            questionsAnswers[i][QUESTION_ROW_NUMBER] = String.valueOf(questionNumber);
+            questionsAnswers[i][ANSWER_ROW_NUMBER] = (isPrime(questionNumber)) ? "yes" : "no";
+        }
+        Engine.startGame(TASK, questionsAnswers);
+    }
 
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-
-        int attempts = 3;
-        int correctAnswers = 0;
-            for (var i = 0; i < attempts; i++) {
-                int number = Engine.getRandomInt();
-                System.out.println("Question: " + number);
-                System.out.print("Your answer: ");
-
-                Scanner scanner = new Scanner(System.in);
-                String answer = scanner.next();
-
-                if (Engine.isPrime(number) == true && answer.equals("yes")) {
-                    System.out.println("Correct!");
-                    correctAnswers++;
-                } else if (Engine.isPrime(number) == false && answer.equals("no")) {
-                    System.out.println("Correct!");
-                    correctAnswers++;
-                } else if (Engine.isPrime(number) == true && answer.equals("no")) {
-                    System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'yes'.");
-                    System.out.println("Let's try again, " + userName + "!");
-                    correctAnswers = 0;
-                    break;
-                } else if (Engine.isPrime(number) == false && answer.equals("yes")) {
-                    System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'no'.");
-                    System.out.println("Let's try again, " + userName + "!");
-                    correctAnswers = 0;
-                    break;
-                }
-
-                if (correctAnswers == 3) {
-                    System.out.println("Congratulations, " + userName + "!");
-                    break;
-                }
+    private static boolean isPrime(int currentNumber) {
+        if (currentNumber < 2) {
+            return false;
+        }
+        for (int i = 2; i <= currentNumber / 2; i++) {
+            if (currentNumber % i == 0) {
+                return false;
             }
-
-        Engine.farewellAfterPlay();
+        }
+        return true;
     }
 }

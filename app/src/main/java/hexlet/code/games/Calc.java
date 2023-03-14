@@ -1,63 +1,34 @@
-package hexlet.code;
+package hexlet.code.games;
 
-import java.util.Scanner;
-import java.util.Random;
+import hexlet.code.Engine;
 
 public class Calc {
-	public static void calculator() {
-		System.out.println("May I have your name? ");
-		Scanner scannerName = new Scanner(System.in);
-		String userName = scannerName.next();
-		System.out.println("Hello, " + userName + "!");
-
-		System.out.println("What is the result of the expression?");
-
-		Random random = new Random();
-		String[] operators = {"+", "-", "*"};
-
-		int attempts = 3;
-		int correctAnswers = 0;
-		for (var i = 0; i < attempts; i++) {
-			int num1 = Engine.getRandomInt();
-			int num2 = Engine.getRandomInt();
-			int operator = random.nextInt(3);
-			int result = 0;
-
-			String operatorSymbol = operators[operator];
-			System.out.println("Question: " + num1 + " " + operatorSymbol + " " + num2 + " = ?");
-			System.out.print("Your answer: ");
-
-			switch (operatorSymbol) {
-				case "+":
-					result = num1 + num2;
-					break;
-				case "-":
-					result = num1 - num2;
-					break;
-				case "*":
-					result = num1 * num2;
-					break;
-			}
-
-			Scanner scannerAnswer = new Scanner(System.in);
-			int answerInt = scannerAnswer.nextInt();
-			if (answerInt == result) {
-				System.out.println("Correct!");
-				correctAnswers++;
-			} else {
-				System.out.println("Incorrect!");
-				System.out.println("'" + answerInt + "'" + " is wrong answer ;(. Correct answer was " + "'" + result + "'.");
-				System.out.println("Let's try again, " + userName + "!");
-				correctAnswers = 0;
-				break;
-			}
-
-			if (correctAnswers == 3) {
-				System.out.println("Congratulations, " + userName + "!");
-				break;
-			}
-		}
-
-		Engine.farewellAfterPlay();
-	}
+    private static final int QUESTIONS_COUNT = 3;
+    private static final int MAX_RANDOM_NUMBER = 100;
+    private static final String TASK = "What is the result of the expression?";
+    private static String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
+    private static final int QUESTION_ROW_NUMBER = 0;
+    private static final int ANSWER_ROW_NUMBER = 1;
+    private static final char[] MATH_OPERATORS = {'+', '-', '*'};
+    public static void start() {
+        for (int i = 0; i < QUESTIONS_COUNT; i++) {
+            int firstNum = (int) (Math.random() * MAX_RANDOM_NUMBER + 1);
+            int secondNum = (int) (Math.random() * MAX_RANDOM_NUMBER + 1);
+            int randomIndexOperator = (int) (Math.random() * MATH_OPERATORS.length);
+            char operator = MATH_OPERATORS[randomIndexOperator];
+            switch (operator) {
+                case '+':
+                    questionsAnswers[i][ANSWER_ROW_NUMBER] = String.valueOf(firstNum + secondNum);
+                    break;
+                case '-':
+                    questionsAnswers[i][ANSWER_ROW_NUMBER] = String.valueOf(firstNum - secondNum);
+                    break;
+                default:
+                    questionsAnswers[i][ANSWER_ROW_NUMBER] = String.valueOf(firstNum * secondNum);
+                    break;
+            }
+            questionsAnswers[i][QUESTION_ROW_NUMBER] = firstNum + " " + operator + " " + secondNum;
+        }
+        Engine.startGame(TASK, questionsAnswers);
+    }
 }
