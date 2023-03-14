@@ -7,8 +7,6 @@ public class Even {
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final String TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
-    /*  questionsAnswers[][0] - questions;
-        questionsAnswers[][1] - correct answers */
     private static final int QUESTION_ROW_NUMBER = 0;
     private static final int ANSWER_ROW_NUMBER = 1;
     public static void start() {

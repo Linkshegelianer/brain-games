@@ -1,3 +1,15 @@
+/*
+Every game uses the same logic:
+Use matrix String[][] questionsAnswers to store:
+- iterable for three unique questions for one session in a first row
+- in the first index of the second row store the randomly generated question
+- in the second index of the second row store the answer to this question
+
+In order to avoid repetition, the verification algorithm is written in the Engine class, which receives
+the matrix containing questions and answers and a task from every game. 
+ */
+
+
 package hexlet.code;
 
 import java.util.Scanner;
@@ -14,8 +26,8 @@ public class Engine {
         System.out.println(task);
 
         for (int i = 0; i < questionsAnswers.length; i++) {
-            String correctAnswer = questionsAnswers[i][ANSWER_ROW_NUMBER];
-            System.out.println("Question: " + questionsAnswers[i][QUESTION_ROW_NUMBER]);
+            String correctAnswer = questionsAnswers[i][ANSWER_ROW_NUMBER]; // pull out the correct answer from the matrix
+            System.out.println("Question: " + questionsAnswers[i][QUESTION_ROW_NUMBER]); // print the question
             System.out.print("Your answer: ");
             var currentAnswer = console.nextLine();
             boolean isAnswerCorrect = currentAnswer.equals(correctAnswer);

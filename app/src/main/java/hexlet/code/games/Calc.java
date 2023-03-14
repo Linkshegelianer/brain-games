@@ -3,15 +3,15 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Calc {
-    private static final int QUESTIONS_COUNT = 3;
-    private static final int MAX_RANDOM_NUMBER = 100;
+    private static final int QUESTIONS_COUNT = 3; // only three unique questions in one session
+    private static String[][] questionsAnswers = new String[QUESTIONS_COUNT][2]; // a matrix to store three answers to a three questions
+    private static final int QUESTION_ROW_NUMBER = 0; // fixed place in the matrix for a question
+    private static final int ANSWER_ROW_NUMBER = 1; // fixed place in the matrix to store answer as String
     private static final String TASK = "What is the result of the expression?";
-    private static String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
-    private static final int QUESTION_ROW_NUMBER = 0;
-    private static final int ANSWER_ROW_NUMBER = 1;
+    private static final int MAX_RANDOM_NUMBER = 100;
     private static final char[] MATH_OPERATORS = {'+', '-', '*'};
     public static void start() {
-        for (int i = 0; i < QUESTIONS_COUNT; i++) {
+        for (int i = 0; i < QUESTIONS_COUNT; i++) { // generate questions only three times
             int firstNum = (int) (Math.random() * MAX_RANDOM_NUMBER + 1);
             int secondNum = (int) (Math.random() * MAX_RANDOM_NUMBER + 1);
             int randomIndexOperator = (int) (Math.random() * MATH_OPERATORS.length);
@@ -29,6 +29,6 @@ public class Calc {
             }
             questionsAnswers[i][QUESTION_ROW_NUMBER] = firstNum + " " + operator + " " + secondNum;
         }
-        Engine.startGame(TASK, questionsAnswers);
+        Engine.startGame(TASK, questionsAnswers); // to avoid repetition, the matrix is given to separate method
     }
 }
