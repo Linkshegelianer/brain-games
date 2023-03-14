@@ -3,20 +3,20 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Gcd {
-    private static final int QUESTIONS_COUNT = 3;
-    private static final int MAX_RANDOM_NUMBER = 100;
-    private static final String TASK = "Find the greatest common divisor of given numbers.";
-    private static String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
-    private static final int QUESTION_ROW_NUMBER = 0;
-    private static final int ANSWER_ROW_NUMBER = 1;
+    private static final int questionsCount = 3;
+    private static final int maxRandomNumber = 100;
+    private static final String task = "Find the greatest common divisor of given numbers.";
+    private static String[][] questionsAnswers = new String[questionsCount][2];
+    private static final int questionRowNumber = 0;
+    private static final int answerRowNumber = 1;
     public static void start() {
-        for (int i = 0; i < QUESTIONS_COUNT; i++) {
-            int questionNumber1 = (int) (Math.random() * MAX_RANDOM_NUMBER);
-            int questionNumber2 = (int) (Math.random() * MAX_RANDOM_NUMBER);
-            questionsAnswers[i][QUESTION_ROW_NUMBER] = questionNumber1 + " " + questionNumber2;
-            questionsAnswers[i][ANSWER_ROW_NUMBER] = String.valueOf(gcd(questionNumber1, questionNumber2));
+        for (int i = 0; i < questionsCount; i++) {
+            int questionNumber1 = (int) (Math.random() * maxRandomNumber);
+            int questionNumber2 = (int) (Math.random() * maxRandomNumber);
+            questionsAnswers[i][questionRowNumber] = questionNumber1 + " " + questionNumber2;
+            questionsAnswers[i][answerRowNumber] = String.valueOf(gcd(questionNumber1, questionNumber2));
         }
-        Engine.startGame(TASK, questionsAnswers);
+        Engine.startGame(task, questionsAnswers);
     }
 
     private static int gcd(int a, int b) {
