@@ -3,8 +3,10 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+
     private static final int QUESTION_ROW_NUMBER = 0;
     private static final int ANSWER_ROW_NUMBER = 1;
+
     public static void startGame(String task, String[][] questionsAnswers) { // task and matrix are given from games
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name?");
@@ -30,4 +32,5 @@ public class Engine {
         }
         System.out.println("Congratulations, " + username + "!");
     }
+
 }

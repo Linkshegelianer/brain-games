@@ -8,6 +8,7 @@ import hexlet.code.games.Prog;
 import hexlet.code.games.Prime;
 
 public class App {
+
     private static final String GREET = "1";
     private static final String EVEN = "2";
     private static final String CALC = "3";
@@ -15,6 +16,7 @@ public class App {
     private static final String PROGRESSION = "5";
     private static final String PRIME = "6";
     private static final String EXIT = "0";
+
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
@@ -55,4 +57,5 @@ public class App {
         }
 
     }
+
 }
