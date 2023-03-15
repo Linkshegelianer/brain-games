@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
+
     private static final int QUESTIONS_COUNT = 3;
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final String TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
@@ -29,4 +30,5 @@ public class Prime {
         }
         return true;
     }
+
 }

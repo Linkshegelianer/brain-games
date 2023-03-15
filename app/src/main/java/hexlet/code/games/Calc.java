@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Calc {
+
     private static final int QUESTIONS_COUNT = 3; // only three unique questions in one session
     private static String[][] questionsAnswers = new String[QUESTIONS_COUNT][2]; // matrix to store answers & questions
     private static final int QUESTION_ROW_NUMBER = 0; // fixed place in the matrix for a question
@@ -31,4 +32,5 @@ public class Calc {
         }
         Engine.startGame(TASK, questionsAnswers); // to avoid repetition, the matrix is given to Engine class
     }
+
 }

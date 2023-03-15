@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Even {
+
     private static final int QUESTIONS_COUNT = 3;
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final String TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";

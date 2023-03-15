@@ -5,6 +5,7 @@ import hexlet.code.Engine;
 import java.util.Arrays;
 
 public class Prog {
+
     private static final int QUESTIONS_COUNT = 3;
     private static final int MIN_NUMBERS_IN_A_ROW = 5;
     private static final int MAX_NUMBERS_IN_A_ROW = 10;
@@ -42,4 +43,5 @@ public class Prog {
     private static int getRandomNumber(int min, int max) {
         return (int) (Math.random() * (max - min)) + min;
     }
+
 }
