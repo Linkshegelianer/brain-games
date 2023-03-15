@@ -13,11 +13,12 @@ public class Prog {
     private static final int MAX_INCREMENT = 30;
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final String TASK = "What number is missing in the progression?";
-    private static String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
     private static final int QUESTION_ROW_NUMBER = 0;
     private static final int ANSWER_ROW_NUMBER = 1;
 
     public static void start() {
+        String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
+
         int numbersInARow = Engine.generateNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
         String[] progression = new String[numbersInARow];
         for (int i = 0; i < QUESTIONS_COUNT; i++) {

@@ -7,10 +7,11 @@ public class Gcd {
     private static final int QUESTIONS_COUNT = 3;
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final String TASK = "Find the greatest common divisor of given numbers.";
-    private static String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
     private static final int QUESTION_ROW_NUMBER = 0;
     private static final int ANSWER_ROW_NUMBER = 1;
     public static void start() {
+        String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
+
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
             int questionNumber1 = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
             int questionNumber2 = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
