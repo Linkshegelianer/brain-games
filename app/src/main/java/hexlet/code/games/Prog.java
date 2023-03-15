@@ -2,8 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Arrays;
-
 public class Prog {
 
     private static final int QUESTIONS_COUNT = 3;
