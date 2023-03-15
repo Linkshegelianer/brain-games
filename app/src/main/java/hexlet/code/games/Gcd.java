@@ -12,11 +12,11 @@ public class Gcd {
     public static void start() {
         String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
 
-        for (int i = 0; i < QUESTIONS_COUNT; i++) {
+        for (String[] questionAnswer : questionsAnswers) {
             int questionNumber1 = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
             int questionNumber2 = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
-            questionsAnswers[i][QUESTION_ROW_NUMBER] = questionNumber1 + " " + questionNumber2;
-            questionsAnswers[i][ANSWER_ROW_NUMBER] = String.valueOf(gcd(questionNumber1, questionNumber2));
+            questionAnswer[QUESTION_ROW_NUMBER] = questionNumber1 + " " + questionNumber2;
+            questionAnswer[ANSWER_ROW_NUMBER] = String.valueOf(gcd(questionNumber1, questionNumber2));
         }
         Engine.startGame(TASK, questionsAnswers);
     }

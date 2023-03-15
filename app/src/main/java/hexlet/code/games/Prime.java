@@ -12,10 +12,10 @@ public class Prime {
     public static void start() {
         String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
 
-        for (int i = 0; i < QUESTIONS_COUNT; i++) {
+        for (String[] questionAnswer : questionsAnswers) {
             int questionNumber = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
-            questionsAnswers[i][QUESTION_ROW_NUMBER] = String.valueOf(questionNumber);
-            questionsAnswers[i][ANSWER_ROW_NUMBER] = (isPrime(questionNumber)) ? "yes" : "no";
+            questionAnswer[QUESTION_ROW_NUMBER] = String.valueOf(questionNumber);
+            questionAnswer[ANSWER_ROW_NUMBER] = (isPrime(questionNumber)) ? "yes" : "no";
         }
         Engine.startGame(TASK, questionsAnswers);
     }

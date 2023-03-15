@@ -15,9 +15,9 @@ public class Engine {
         System.out.println("Hello, " + username + "!");
         System.out.println(task);
 
-        for (int i = 0; i < questionsAnswers.length; i++) {
-            String correctAnswer = questionsAnswers[i][ANSWER_ROW_NUMBER]; // pull the correct answer from the matrix
-            System.out.println("Question: " + questionsAnswers[i][QUESTION_ROW_NUMBER]); // print the question
+        for (String[] questionAnswer : questionsAnswers) {
+            String correctAnswer = questionAnswer[ANSWER_ROW_NUMBER]; // pull the correct answer from the matrix
+            System.out.println("Question: " + questionAnswer[QUESTION_ROW_NUMBER]); // print the question
             System.out.print("Your answer: ");
             var currentAnswer = console.nextLine();
             boolean isAnswerCorrect = currentAnswer.equals(correctAnswer);

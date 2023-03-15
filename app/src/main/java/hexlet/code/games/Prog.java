@@ -23,7 +23,8 @@ public class Prog {
 
     private static String[][] generateProg() {
         String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
-        for (int i = 0; i < QUESTIONS_COUNT; i++) {
+
+        for (String[] questionAnswer : questionsAnswers) {
             int numbersInARow = Engine.generateNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
             int hiddenNumberIndex = Engine.generateNumber(0, numbersInARow - 1);
             int increment = Engine.generateNumber(MIN_INCREMENT, MAX_INCREMENT);
@@ -34,13 +35,13 @@ public class Prog {
                     progression[j] = String.valueOf(currentNumber);
                 } else {
                     progression[j] = "..";
-                    questionsAnswers[i][ANSWER_ROW_NUMBER] = String.valueOf(currentNumber);
+                    questionAnswer[ANSWER_ROW_NUMBER] = String.valueOf(currentNumber);
                 }
                 currentNumber += increment;
             }
-            questionsAnswers[i][QUESTION_ROW_NUMBER] = String.join(" ", progression);
+            questionAnswer[QUESTION_ROW_NUMBER] = String.join(" ", progression);
         }
         return questionsAnswers;
     }
-    
+
 }
