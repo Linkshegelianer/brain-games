@@ -12,7 +12,7 @@ public class Even {
     private static final int ANSWER_ROW_NUMBER = 1;
     public static void start() {
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
-            int questionNumber = (int) (Math.random() * MAX_RANDOM_NUMBER);
+            int questionNumber = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
             questionsAnswers[i][QUESTION_ROW_NUMBER] = String.valueOf(questionNumber);
             questionsAnswers[i][ANSWER_ROW_NUMBER] = (isEven(questionNumber)) ? "yes" : "no";
         }

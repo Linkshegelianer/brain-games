@@ -33,4 +33,8 @@ public class Engine {
         System.out.println("Congratulations, " + username + "!");
     }
 
+    public static int generateNumber(int min, int max) {
+        return (int) Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
 }

@@ -13,8 +13,8 @@ public class Calc {
     private static final char[] MATH_OPERATORS = {'+', '-', '*'};
     public static void start() {
         for (int i = 0; i < QUESTIONS_COUNT; i++) { // generate questions only three times
-            int firstNum = (int) (Math.random() * MAX_RANDOM_NUMBER + 1);
-            int secondNum = (int) (Math.random() * MAX_RANDOM_NUMBER + 1);
+            int firstNum = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
+            int secondNum = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
             int randomIndexOperator = (int) (Math.random() * MATH_OPERATORS.length);
             char operator = MATH_OPERATORS[randomIndexOperator];
             switch (operator) {

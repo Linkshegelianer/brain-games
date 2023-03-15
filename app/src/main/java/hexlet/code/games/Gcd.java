@@ -12,8 +12,8 @@ public class Gcd {
     private static final int ANSWER_ROW_NUMBER = 1;
     public static void start() {
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
-            int questionNumber1 = (int) (Math.random() * MAX_RANDOM_NUMBER);
-            int questionNumber2 = (int) (Math.random() * MAX_RANDOM_NUMBER);
+            int questionNumber1 = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
+            int questionNumber2 = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
             questionsAnswers[i][QUESTION_ROW_NUMBER] = questionNumber1 + " " + questionNumber2;
             questionsAnswers[i][ANSWER_ROW_NUMBER] = String.valueOf(gcd(questionNumber1, questionNumber2));
         }

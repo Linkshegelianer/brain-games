@@ -18,12 +18,12 @@ public class Prog {
     private static final int ANSWER_ROW_NUMBER = 1;
 
     public static void start() {
-        int numbersInARow = getRandomNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
+        int numbersInARow = Engine.generateNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
         String[] progression = new String[numbersInARow];
         for (int i = 0; i < QUESTIONS_COUNT; i++) {
-            int hiddenNumberIndex = getRandomNumber(0, numbersInARow - 1);
-            int increment = getRandomNumber(MIN_INCREMENT, MAX_INCREMENT);
-            int currentNumber = getRandomNumber(0, MAX_RANDOM_NUMBER);
+            int hiddenNumberIndex = Engine.generateNumber(0, numbersInARow - 1);
+            int increment = Engine.generateNumber(MIN_INCREMENT, MAX_INCREMENT);
+            int currentNumber = Engine.generateNumber(0, MAX_RANDOM_NUMBER);
             Arrays.fill(progression, "");
             questionsAnswers[i][QUESTION_ROW_NUMBER] = "";
             for (int j = 0; j < numbersInARow; j++) {
@@ -38,10 +38,6 @@ public class Prog {
             questionsAnswers[i][QUESTION_ROW_NUMBER] = String.join(" ", progression);
         }
         Engine.startGame(TASK, questionsAnswers);
-    }
-
-    private static int getRandomNumber(int min, int max) {
-        return (int) (Math.random() * (max - min)) + min;
     }
 
 }
