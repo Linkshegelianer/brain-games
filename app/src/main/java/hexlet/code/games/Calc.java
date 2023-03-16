@@ -4,14 +4,13 @@ import hexlet.code.Engine;
 
 public class Calc {
 
-    private static final int QUESTIONS_COUNT = 3; // only three unique questions in one session
     private static final int QUESTION_ROW_NUMBER = 0; // fixed place in the matrix for a question
     private static final int ANSWER_ROW_NUMBER = 1; // fixed place in the matrix to store answer as String
     private static final String TASK = "What is the result of the expression?";
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final char[] MATH_OPERATORS = {'+', '-', '*'};
     public static void start() {
-        String[][] questionsAnswers = new String[QUESTIONS_COUNT][2]; // matrix to store answers & questions
+        String[][] questionsAnswers = new String[Engine.ROUNDS_COUNT][2]; // matrix to store answers & questions
 
         for (String[] questionAnswer : questionsAnswers) { // generate questions only three times
             int firstNum = Engine.generateNumber(1, MAX_RANDOM_NUMBER);

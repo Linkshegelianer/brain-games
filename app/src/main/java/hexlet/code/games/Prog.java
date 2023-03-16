@@ -4,7 +4,6 @@ import hexlet.code.Engine;
 
 public class Prog {
 
-    private static final int QUESTIONS_COUNT = 3;
     private static final int MIN_NUMBERS_IN_A_ROW = 5;
     private static final int MAX_NUMBERS_IN_A_ROW = 10;
     private static final int MIN_INCREMENT = 5;
@@ -20,7 +19,7 @@ public class Prog {
     }
 
     private static String[][] generateProg() {
-        String[][] questionsAnswers = new String[QUESTIONS_COUNT][2];
+        String[][] questionsAnswers = new String[Engine.ROUNDS_COUNT][2];
 
         for (String[] questionAnswer : questionsAnswers) {
             int numbersInARow = Engine.generateNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
