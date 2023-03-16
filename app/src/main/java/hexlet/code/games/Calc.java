@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import java.util.Random;
 import hexlet.code.Engine;
 
 public class Calc {
@@ -13,8 +14,9 @@ public class Calc {
         String[][] questionsAnswers = new String[Engine.ROUNDS_COUNT][2]; // matrix to store answers & questions
 
         for (String[] questionAnswer : questionsAnswers) { // generate questions only three times
-            int firstNum = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
-            int secondNum = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
+            Random random = new Random();
+            int firstNum = random.nextInt(MAX_RANDOM_NUMBER);
+            int secondNum = random.nextInt(MAX_RANDOM_NUMBER);
             int randomIndexOperator = (int) (Math.random() * MATH_OPERATORS.length);
             char operator = MATH_OPERATORS[randomIndexOperator];
             switch (operator) {

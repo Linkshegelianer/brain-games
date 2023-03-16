@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import java.util.Random;
 import hexlet.code.Engine;
 
 public class Even {
@@ -12,7 +13,8 @@ public class Even {
         String[][] questionsAnswers = new String[Engine.ROUNDS_COUNT][2];
 
         for (String[] questionAnswer : questionsAnswers) {
-            int questionNumber = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
+            Random random = new Random();
+            int questionNumber = random.nextInt(MAX_RANDOM_NUMBER);
             questionAnswer[QUESTION_ROW_NUMBER] = String.valueOf(questionNumber);
             questionAnswer[ANSWER_ROW_NUMBER] = (isEven(questionNumber)) ? "yes" : "no";
         }

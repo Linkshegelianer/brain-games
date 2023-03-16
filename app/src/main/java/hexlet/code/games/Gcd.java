@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import java.util.Random;
 import hexlet.code.Engine;
 
 public class Gcd {
@@ -12,8 +13,9 @@ public class Gcd {
         String[][] questionsAnswers = new String[Engine.ROUNDS_COUNT][2];
 
         for (String[] questionAnswer : questionsAnswers) {
-            int questionNumber1 = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
-            int questionNumber2 = Engine.generateNumber(1, MAX_RANDOM_NUMBER);
+            Random random = new Random();
+            int questionNumber1 = random.nextInt(MAX_RANDOM_NUMBER);
+            int questionNumber2 = random.nextInt(MAX_RANDOM_NUMBER);
             questionAnswer[QUESTION_ROW_NUMBER] = questionNumber1 + " " + questionNumber2;
             questionAnswer[ANSWER_ROW_NUMBER] = String.valueOf(gcd(questionNumber1, questionNumber2));
         }

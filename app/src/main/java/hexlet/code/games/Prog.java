@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import java.util.Random;
 import hexlet.code.Engine;
 
 public class Prog {
@@ -22,10 +23,11 @@ public class Prog {
         String[][] questionsAnswers = new String[Engine.ROUNDS_COUNT][2];
 
         for (String[] questionAnswer : questionsAnswers) {
-            int numbersInARow = Engine.generateNumber(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
-            int hiddenNumberIndex = Engine.generateNumber(0, numbersInARow - 1);
-            int increment = Engine.generateNumber(MIN_INCREMENT, MAX_INCREMENT);
-            int currentNumber = Engine.generateNumber(0, MAX_RANDOM_NUMBER);
+            Random random = new Random();
+            int numbersInARow = random.nextInt(MIN_NUMBERS_IN_A_ROW, MAX_NUMBERS_IN_A_ROW);
+            int hiddenNumberIndex = random.nextInt(0, numbersInARow - 1);
+            int increment = random.nextInt(MIN_INCREMENT, MAX_INCREMENT);
+            int currentNumber = random.nextInt(0, MAX_RANDOM_NUMBER);
             String[] progression = new String[numbersInARow];
             for (int j = 0; j < numbersInARow; j++) {
                 if (j != hiddenNumberIndex) {
