@@ -12,3 +12,10 @@ This repository contatins a small game called "Brain games", which consist of se
   * [GCD function](https://asciinema.org/a/V4ATlJqjMC0hM9K9SRjRhR1UB)
   * [Progression function](https://asciinema.org/a/2fUuyfvDQp65onPhu5wffrPaW)
   * [Prime function](https://asciinema.org/a/KsWnqb9Z1K7cboONrlHluwGBh)
+
+## Setup
+
+```sh
+gradle installDist
+make run-dist
+```
