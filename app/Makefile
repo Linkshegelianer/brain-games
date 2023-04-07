@@ -1,2 +1,7 @@
-run-dist: 
+buld:
+	./gradlew clean
+	./gradlew installDist
+run: 
 	./build/install/app/bin/app
+
+.PHONY: build
