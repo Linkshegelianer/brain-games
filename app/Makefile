@@ -1,4 +1,4 @@
-buld:
+build:
 	./gradlew clean
 	./gradlew installDist
 run: 
