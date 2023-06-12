@@ -1,7 +1,17 @@
+run-dist: build lint run
+
 build:
-	./gradlew clean
-	./gradlew installDist
-run: 
-	./build/install/app/bin/app
+	gradle clean
+	gradle build
+	# ./gradlew clean
+	# ./gradlew installDist
+
+lint:
+	gradle checkstyleMain
+
+run:
+	gradle run
+	# ./build/install/app/bin/app
+
 
 .PHONY: build
