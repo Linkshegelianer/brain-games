@@ -1,7 +1,7 @@
-package hexlet.code.games;
+package project.code.games;
 
 import java.util.Random;
-import hexlet.code.Engine;
+import project.code.Engine;
 
 public class Gcd {
 
