@@ -24,4 +24,4 @@ jobs:
           build-root-directory: app
 
       - run: chmod +x app/gradlew
-      - run: make build
+      - run: ./gradlew clean build
