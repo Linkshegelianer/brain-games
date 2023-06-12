@@ -1,13 +1,12 @@
 run-dist: build lint run
 
 build:
-	gradle clean
-	gradle build
+	./gradlew clean build
 
 lint:
-	gradle checkstyleMain
+	./gradlew checkstyleMain checkstyleTest
 
 run:
-	gradle run
+	./gradlew run
 
 .PHONY: build
